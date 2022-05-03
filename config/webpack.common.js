@@ -39,7 +39,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'webpack Boilerplate',
       favicon: paths.src + '/images/favicon.png',
-      template: paths.src + '/template.html', // template file
+      template: paths.src + '/index.html', // template file
       filename: 'index.html', // output file
     }),
   ],
@@ -51,10 +51,10 @@ module.exports = {
       { test: /\.js$/, use: ['babel-loader'] },
 
       // Images: Copy image files to build folder
-      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
+      { test: /\.(?:ico|gif|png|jp?g)$/i, type: 'asset/resource' },
 
       // Fonts and SVGs: Inline files
-      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
+      { test: /\.(woff(2)?|eot|ttf|otf|svg|jp?g)$/, type: 'asset/inline' },
     ],
   },
 

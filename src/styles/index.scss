@@ -1,7 +1,154 @@
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/Inter.ttf');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Philosopher&display=swap'); 
+@import "normalize.css";
+
+body {
+  margin: 10px auto 0;
+
 }
 
-@import 'variables';
-@import 'scaffolding';
+h2 {
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Philosopher";
+  color: #b2544f;
+
+}
+
+h3 {
+  line-height: 18px;
+  font-size: 19px;
+  font-weight: 700;
+  font-family: "Noto Serif";
+
+}
+
+h5{
+  font-size: 11px;
+  font-weight: 300;
+  font-family: "Noto Serif";
+  color: #b6b6b6;
+
+}
+
+p{
+  font-size: 13px;
+  font-family: "Noto Serif";
+  color: #707070;
+
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  margin-top: 50px;
+  width: 300px;
+
+}
+
+a:hover {
+  margin-top: 25px;
+  transition: 1s;
+
+}
+
+a:hover .newsfoto {
+  width: 110%;
+  transform: rotate(4deg);
+  transition: 1s;
+
+}
+
+a:hover h3 {
+  color: #707070;
+
+}
+
+.cv-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-top: 3px solid;
+
+}
+
+@media (max-width:1199px) {
+  .cv-carousel {
+    max-width: 1024px;
+
+  }
+
+  a:nth-last-child(-n+3) {
+    display: none;
+
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    margin-top: 50px;
+    width: 300px !important;
+
+  }
+
+}
+
+@media (max-width:1023px) {
+  .cv-carousel {
+    max-width: 768px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+
+  }
+
+  a:nth-last-child(-n+3) {
+    display: inherit;
+
+  }
+
+  div.slick-slide  > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
+
+@media (max-width:767px) {
+
+  .cv-carousel {
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+
+  }
+
+  div.slick-slide  > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
+
+.newsfoto {
+  width: 100%;
+  height: 190px;
+
+}
+
+.newsname {
+  width: 68%;
+
+}
+

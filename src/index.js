@@ -1,26 +1,58 @@
-// Test import of a JavaScript module
-import { example } from '@/js/example'
-
-// Test import of an asset
-import webpackLogo from '@/images/webpack-logo.svg'
-
+import * as $ from "jquery"
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel'
 // Test import of styles
 import '@/styles/index.scss'
 
-// Appending to the DOM
-const logo = document.createElement('img')
-logo.src = webpackLogo
 
-const heading = document.createElement('h1')
-heading.textContent = example()
 
-// Test a background image url in CSS
-const imageBackground = document.createElement('div')
-imageBackground.classList.add('image')
+window.addEventListener('resize', () => {
+  updateSlickCarousel(document.body.parentElement.clientWidth);
+})
 
-// Test a public folder asset
-const imagePublic = document.createElement('img')
-imagePublic.src = '/assets/example.png'
+updateSlickCarousel(document.body.parentElement.clientWidth);
 
-const app = document.querySelector('#root')
-app.append(logo, heading, imageBackground, imagePublic)
+let slickInstance;
+
+function updateSlickCarousel(screenWidth){
+  if(screenWidth < 1024){
+    if(!slickInstance){
+      slickInstance = $('.cv-carousel').slick({
+
+        responsive: [{
+          breakpoint: 1024,
+          settings: {
+            slidesPerRow: 2,
+            verticalSwiping: true,
+            dots: false,
+            arrows: false,
+            infinite: false,
+            speed: 700,
+            fade: true,
+            cssEase: 'linear'
+            }
+          }, {
+            breakpoint: 768,
+            settings: {
+              slidesPerRow: 1,
+              verticalSwiping: true,
+              dots: false,
+              arrows: false,
+              infinite: false,
+              speed: 700,
+              fade: true,
+              cssEase: 'linear'
+            }
+        }]
+
+      });
+    }
+  }
+
+  else{
+    if(slickInstance){
+      $('.cv-carousel').slick('unslick');
+      slickInstance = null
+    }
+  }
+}
