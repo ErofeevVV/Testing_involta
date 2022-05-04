@@ -1,17 +1,17 @@
-import * as $ from "jquery"
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel'
-// Test import of styles
-import '@/styles/index.scss'
+import * as $ from "jquery"   //импорт библиотеки jQueryy
+import 'slick-carousel/slick/slick.css'   //подключение стилей карусели slick
+import 'slick-carousel'   //импорт карусели slick
+import '@/styles/index.scss'    //подключение собственных стилей
 
 
-
+//обработка события ширины экрана
 window.addEventListener('resize', () => {
   updateSlickCarousel(document.body.parentElement.clientWidth);
 })
 
 updateSlickCarousel(document.body.parentElement.clientWidth);
 
+//включение карусели slick
 let slickInstance;
 
 function updateSlickCarousel(screenWidth){
@@ -20,7 +20,7 @@ function updateSlickCarousel(screenWidth){
       slickInstance = $('.cv-carousel').slick({
 
         responsive: [{
-          breakpoint: 1024,
+          breakpoint: 1024,   //брекпоинт на ширину экрана 1024px
           settings: {
             slidesPerRow: 2,
             verticalSwiping: true,
@@ -32,7 +32,7 @@ function updateSlickCarousel(screenWidth){
             cssEase: 'linear'
             }
           }, {
-            breakpoint: 768,
+            breakpoint: 768,    //брекпоинт на ширину экрана 768px
             settings: {
               slidesPerRow: 1,
               verticalSwiping: true,
@@ -49,6 +49,7 @@ function updateSlickCarousel(screenWidth){
     }
   }
 
+//выключение карусели slick
   else{
     if(slickInstance){
       $('.cv-carousel').slick('unslick');
